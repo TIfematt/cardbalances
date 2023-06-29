@@ -9,7 +9,7 @@ const Nav = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
-    <header>
+
       <nav className='flex items-center md:mx-32 ml-4 mt-4'>
         <div className=''>
           <Image
@@ -48,13 +48,13 @@ const Nav = () => {
             </ul>
             <button className="btn w-24 h-12 rounded-lg  font-bold flex items-center justify-center"
               >
-                Verify Now <HiArrowRight className='relative left-4 top-'/>
+                Verify Now <HiArrowRight className='relative left-4 btn__arrow'/>
             </button>
             </motion.div>
           ) }
         </div>
       </nav>
-    </header>
+
   )
 }
 
