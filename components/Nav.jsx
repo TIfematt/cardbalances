@@ -23,7 +23,7 @@ const Nav = () => {
           {['home', 'Testimonials', 'contact'].map((item) => (
             <li key={`link-${item}`}>
               <div />
-              <a href={`#${item}`}>{item}</a>
+              <a href={`#${item}`} className='text-primaryText'>{item}</a>
             </li>
           ))}
         </ul>
@@ -40,7 +40,7 @@ const Nav = () => {
             <ul className='flex flex-col gap-y-7 -ml-1'>
               {['home', 'Testimonials', 'contact'].map((item) => (
                 <li key={item} className='uppercase'>
-                  <a href={`#${item}`} onClick={() => setToggle(false)}>
+                  <a className='text-primaryText' href={`#${item}`} onClick={() => setToggle(false)}>
                     {item}
                   </a>
                 </li>
