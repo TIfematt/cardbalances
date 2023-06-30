@@ -34,7 +34,7 @@ export default function Home() {
       </section>
     </header>
     <main>
-        <section> 
+      <section> 
           <article className='mt-16 lg:mt-24'>
             <div className='flex items-center justify-center '>
               <span className='text-6xl font-bold text-primaryText filter drop-shadow-lg'>What We Offer</span>
@@ -103,11 +103,55 @@ export default function Home() {
               </div>
             </section>
           </article>
-        </section>
+      </section>
           {/* Verify card section */}
-        <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center'>
-          <VerifyCard />
-        </section>
+      <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center'>
+        <VerifyCard />
+      </section>
+        {/* How it works */}
+      <section className='mt-24'>
+        <h1 className='text-6xl font-bold text-primaryText filter drop-shadow-lg flex justify-center mb-20'>
+          How It Works
+        </h1>
+        <article className='flex flex-col sm:flex-row justify-center items-center'>
+          <div className='flex flex-col gap-8 items-center justify-center bg-primary'>
+            <div className='pl-12'>
+              <Image 
+                src='/assets/look_phone.png'
+                width={400}
+                height={900}
+              />
+            </div>
+            <span className='flex text-center w-72 text-3xl text-primaryText bg-secondary bg-opacity-50'>
+              Start by selecting the card type and entering the relevant details, such as the 
+              card number, issuer, and any additional information requested by our system.
+            </span>
+          </div>
+          <div>
+            <Image 
+              src='/assets/verification.png'
+              width={340}
+              height={340}
+            />
+            <span className='flex w-48'>
+              Once you submit the card details, our cutting-edge algorithm will analyze the 
+              provided information against our extensive card database. 
+            </span>
+          </div>
+          <div>
+            <Image 
+              src='/assets/man_happy.png'
+              width={340}
+              height={340}
+            />
+            <span className='flex w-48'>
+              Within seconds, CardCheckr will generate a clear and concise result indicating
+              the card's authenticity. You will receive a verdict of "Verified" for legitimate 
+              cards or "Not Verified" for cards that raise suspicion
+            </span>
+          </div>
+        </article>
+      </section>
     </main>
   </>
   )
