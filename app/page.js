@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Nav from '@/components/Nav';
+import VerifyCard from '@/components/VerifyCard';
 import { IoShieldCheckmarkOutline, IoCloud, IoShieldHalfOutline, IoStarSharp, IoPerson} from 'react-icons/io5';
 import {  BsBullseye } from 'react-icons/bs';
 import { GiBullseye, GiDisintegrate } from 'react-icons/gi';
@@ -104,10 +105,8 @@ export default function Home() {
           </article>
         </section>
           {/* Verify card section */}
-        <section className='mt-32'>
-          <div> 
-            <form> </form>
-          </div>
+        <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center'>
+          <VerifyCard />
         </section>
     </main>
   </>
