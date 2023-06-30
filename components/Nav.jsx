@@ -10,7 +10,7 @@ const Nav = () => {
 
   return (
 
-      <nav className='flex items-center md:mx-32 ml-4 mt-4'>
+      <nav className='flex items-center md:mx-32 ml-4 mt-4 lg:mx-56'>
         <div className=''>
           <Image
             src='/assets/logo.png'
@@ -19,7 +19,7 @@ const Nav = () => {
           />
         </div>
         {/* Laptop nav */}
-        <ul className="hidden md:flex gap-8 uppercase font-bold relative left-1/4">
+        <ul className="hidden lg:flex gap-8 uppercase font-bold relative left-1/4">
           {['home', 'Testimonials', 'contact'].map((item) => (
             <li key={`link-${item}`}>
               <div />
@@ -28,8 +28,8 @@ const Nav = () => {
           ))}
         </ul>
             {/* Mobile Navigation */}
-        <div className='sm:hidden h-full flex items-center'>
-          <HiMenuAlt4  className="absolute right-0  w-8 h-8" onClick={() => setToggle(true) } />
+        <div className='lg:hidden h-full flex items-center'>
+          <HiMenuAlt4  className="absolute right-0 mr-4  w-8 h-8" onClick={() => setToggle(true) } />
           { toggle && (
             <motion.div
               whileInView={{ x: [300, 0] }}
