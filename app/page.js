@@ -182,7 +182,7 @@ export default function Home() {
       </section>
     </main>
     <footer className='flex flex-col items-center justify-center gap-8 bg-primary bg-opacity-50'>
-      <div className=''>
+      <div className='pt-8'>
         <Image
           src='/assets/logo.png'
           width={200}
@@ -194,7 +194,7 @@ export default function Home() {
         of a smart algorithm that runs very quickly to provide adequate activation information
       </h3>
       <h3 className='paragraph'><a href=''>Contact</a></h3>
-      <p className='paragraph pb-8'>&copy; 2019 - {getFullYear()} Cardbalances, All Rights Reserved</p>
+      <p className='paragraph pb-12'>&copy; 2019 - {getFullYear()} Cardbalances, All Rights Reserved</p>
     </footer>
   </>
   )
