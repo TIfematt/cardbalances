@@ -1,7 +1,14 @@
 import Image from 'next/image'
+
 import Nav from '@/components/Nav';
 import VerifyCard from '@/components/VerifyCard';
-import { IoShieldCheckmarkOutline, IoCloud, IoShieldHalfOutline, IoStarSharp, IoPerson} from 'react-icons/io5';
+import Testimonials from '@/components/Testimonials';
+import { getFullYear } from '@/utils/utils';
+
+import { IoShieldCheckmarkOutline, IoCloud, 
+        IoShieldHalfOutline, IoStarSharp, 
+        IoPerson
+      } from 'react-icons/io5';
 import {  BsBullseye } from 'react-icons/bs';
 import { GiBullseye, GiDisintegrate } from 'react-icons/gi';
 import { SiFastapi } from 'react-icons/si'
@@ -110,11 +117,12 @@ export default function Home() {
       </section>
         {/* How it works */}
       <section className='mt-24'>
-        <h1 className='text-6xl font-bold text-primaryText filter drop-shadow-lg flex justify-center mb-20'>
+        <h1 className='text-6xl font-bold text-primaryText filter drop-shadow-lg flex justify-center '>
           How It Works
         </h1>
-        <article className='flex flex-col sm:flex-row justify-center items-center'>
-          <div className='flex flex-col gap-8 items-center justify-center bg-primary'>
+        <p className='capitalize mb-20 text-4xl text-primaryText text-center pt-4 mx-8'> Learn How Cardbalances Works in three easy steps </p>
+        <article className='flex flex-col flex-wrap lg:flex-row items-center justify-center gap-20'>
+          <div className='flex flex-col gap-8 lg:gap-0 items-center justify-center '>
             <div className='pl-12'>
               <Image 
                 src='/assets/look_phone.png'
@@ -122,29 +130,29 @@ export default function Home() {
                 height={900}
               />
             </div>
-            <span className='flex text-center w-72 text-3xl text-primaryText bg-secondary bg-opacity-50'>
+            <span className='flex text-center w-full  lg:w-96 text-3xl text-primaryText p-8 bg-white border-xl shadow-sm'>
               Start by selecting the card type and entering the relevant details, such as the 
               card number, issuer, and any additional information requested by our system.
             </span>
           </div>
-          <div>
+          <div className='flex flex-col gap-8 lg:gap-0 items-center justify-center '>
             <Image 
               src='/assets/verification.png'
               width={340}
-              height={340}
+              height={240}
             />
-            <span className='flex w-48'>
+            <span className='-mt-12 flex text-center w-full  lg:w-96 text-3xl text-primaryText p-8 bg-white border-xl shadow-sm'>
               Once you submit the card details, our cutting-edge algorithm will analyze the 
               provided information against our extensive card database. 
             </span>
           </div>
-          <div>
+          <div className='flex flex-col gap-8 lg:gap-0 items-center justify-center '>
             <Image 
               src='/assets/man_happy.png'
-              width={340}
-              height={340}
+              width={240}
+              height={140}
             />
-            <span className='flex w-48'>
+            <span className='flex text-center w-full  lg:w-96 text-3xl text-primaryText p-8 bg-white border-xl shadow-sm'>
               Within seconds, CardCheckr will generate a clear and concise result indicating
               the card's authenticity. You will receive a verdict of "Verified" for legitimate 
               cards or "Not Verified" for cards that raise suspicion
@@ -152,7 +160,42 @@ export default function Home() {
           </div>
         </article>
       </section>
+        {/* Testimonial section */}
+      <section className='bg-primary w-screen' id='testimonial'>
+        <Testimonials />
+      </section>
+      {/* privacy protection section */}
+      <section className='m-20 sm:m-32 flex flex-col items-center justify-center sm:flex-row gap-20'>
+        <div className='lg:flex lg:flex-col lg:items-center lg:justify-center'>
+          <h1 className='text-primaryText text-6xl sm:font-extrabold capitalize text-center max-w-max filter drop-shadow-lg'>Your Privacy Is Our Priority</h1>
+          <p className='flex text-center w-full text-primaryText text-3xl mt-8'>We ensure that your data is well protected against malicious attacks. Our comprehensive security ensures that
+            our systems are always up-to date and 100% secured.
+          </p>
+        </div>
+        <div>
+          <Image 
+            src='/assets/padlock.png'
+            width={700}
+            height={700}
+          />
+        </div>
+      </section>
     </main>
+    <footer className='flex flex-col items-center justify-center gap-8 bg-primary bg-opacity-50'>
+      <div className=''>
+        <Image
+          src='/assets/logo.png'
+          width={200}
+          height={200}
+        />
+      </div>
+      <h3 className='paragraph px-4 sm:px-52'>
+        An efficient framework that provides robust verification through the use 
+        of a smart algorithm that runs very quickly to provide adequate activation information
+      </h3>
+      <h3 className='paragraph'><a href=''>Contact</a></h3>
+      <p className='paragraph pb-8'>&copy; 2019 - {getFullYear()} Cardbalances, All Rights Reserved</p>
+    </footer>
   </>
   )
 }

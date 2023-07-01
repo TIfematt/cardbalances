@@ -57,3 +57,19 @@ body {
   75% { transform: translateX(5px) }
   100% { transform: translateX(0) }
 }
+
+.heading {
+  @apply text-primaryText text-6xl sm:font-extrabold capitalize text-center max-w-max filter drop-shadow-lg
+}
+
+.paragraph {
+  @apply text-center w-full text-primaryText text-3xl 
+}
+
+.card {
+  transition: transform .2s
+}
+
+.card:hover {
+  transform: scale(1);
+}
