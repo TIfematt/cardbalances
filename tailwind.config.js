@@ -15,6 +15,10 @@ module.exports = {
         'primary': '#C56E33',
         'primaryText': '#077278',
         'secondary': '#E9EDF2'
+      },
+      inset: {
+        '120': '44rem',
+        '125': '90rem'
       }
     },
   },

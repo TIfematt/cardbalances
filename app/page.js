@@ -1,21 +1,28 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 import Nav from '@/components/Nav';
 import VerifyCard from '@/components/VerifyCard';
 import Testimonials from '@/components/Testimonials';
 import { getFullYear } from '@/utils/utils';
 
-import { IoShieldCheckmarkOutline, IoCloud, 
-        IoShieldHalfOutline, IoStarSharp, 
-        IoPerson
-      } from 'react-icons/io5';
+import { 
+  IoShieldCheckmarkOutline, 
+  IoCloud, 
+  IoShieldHalfOutline, 
+  IoStarSharp, 
+  IoPerson
+} from 'react-icons/io5';
 import {  BsBullseye } from 'react-icons/bs';
 import { GiBullseye, GiDisintegrate } from 'react-icons/gi';
 import { SiFastapi } from 'react-icons/si'
 import { GrUpdate } from 'react-icons/gr'
+import { HiArrowRight } from 'react-icons/hi'
+
 
 
 export default function Home() {
+
+
   return (
     <>
     <header> 
@@ -29,6 +36,7 @@ export default function Home() {
             src='/assets/card_brands.png'
             width={450}
             height={600}
+            alt='card brands'
             className='mt-8 rounded-xl lg:w-1/2  md:w-full'
           />
         </div>
@@ -51,7 +59,7 @@ export default function Home() {
               {/* row one */}
               <div className='flex flex-col sm:flex-row gap-12 sm:flex sm:gap-8'>
                   <div className='px-4 w-64 h-60 bg-white border-lg shadow-sm'>
-                      <div className='mt-8 relative z-20 bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
+                      <div className='mt-8 relative  bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
                           <GiBullseye className='w-full h-full text-primaryText'/>
                       </div>
                       <h3 className='pt-6 text-lg font-bold font-inter text-primaryText'>Accuracy</h3>
@@ -60,7 +68,7 @@ export default function Home() {
                       </p>
                   </div>
                   <div className='px-4 w-64 h-60 bg-white border-lg shadow-sm'>
-                      <div className='mt-8 relative z-20 bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
+                      <div className='mt-8 relative bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
                         <IoShieldHalfOutline className='w-full h-full text-primaryText'/>
                       </div>
                       <h3 className='pt-6 text-lg font-bold font-inter text-primaryText'>Security First</h3>
@@ -69,7 +77,7 @@ export default function Home() {
                       </p>
                   </div>
                   <div className='px-4 w-64 h-60 bg-white border-lg shadow-sm'>
-                      <div className='mt-8 relative z-20 bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
+                      <div className='mt-8 relative  bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
                         <SiFastapi className='w-full h-full text-primaryText'/>
                       </div>
                       <h3 className='pt-6 text-lg font-bold font-inter text-primaryText'>Swift Process</h3>
@@ -81,7 +89,7 @@ export default function Home() {
               {/* row two */}
               <div className='flex flex-col sm:flex-row gap-12 sm:flex sm:gap-8'>
                   <div className='px-4 w-64 h-60 bg-white border-lg shadow-sm'>
-                      <div className='mt-8 relative z-20 bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
+                      <div className='mt-8 relative bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
                         <IoPerson className='w-full h-full text-primaryText'/> 
                       </div>
                       <h3 className='pt-6 text-lg font-bold font-inter text-primaryText'>User-Friendly Interface</h3>
@@ -90,7 +98,7 @@ export default function Home() {
                       </p>
                   </div>
                   <div className='px-4 w-64 h-60 bg-white border-lg shadow-sm'>
-                      <div className='mt-8 relative z-20 bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
+                      <div className='mt-8 relative bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
                         <GiDisintegrate className='w-full h-full text-primaryText'/>
                       </div>
                       <h3 className='pt-6 text-lg font-bold font-inter text-primaryText'>Fully Integrated</h3>
@@ -99,7 +107,7 @@ export default function Home() {
                       </p>
                   </div>
                   <div className='px-4 w-64 h-60 bg-white border-lg shadow-sm'>
-                      <div className='mt-8 relative z-20 bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
+                      <div className='mt-8 relative bg-gray-400 bg-opacity-25 filter drop-shadow-lg rounded-full w-12 h-12 flex items-center justify-center'>
                         <GrUpdate className='w-full h-full text-primaryText'/>
                       </div>
                       <h3 className='pt-6 text-lg font-bold font-inter text-primaryText'>Regular Update</h3>
@@ -128,6 +136,7 @@ export default function Home() {
                 src='/assets/look_phone.png'
                 width={400}
                 height={900}
+                alt='brand asset'
               />
             </div>
             <span className='flex text-center w-full  lg:w-96 text-3xl text-primaryText p-8 bg-white border-xl shadow-sm'>
@@ -140,6 +149,7 @@ export default function Home() {
               src='/assets/verification.png'
               width={340}
               height={240}
+              alt='brand asset'
             />
             <span className='-mt-12 flex text-center w-full  lg:w-96 text-3xl text-primaryText p-8 bg-white border-xl shadow-sm'>
               Once you submit the card details, our cutting-edge algorithm will analyze the 
@@ -151,6 +161,7 @@ export default function Home() {
               src='/assets/man_happy.png'
               width={240}
               height={140}
+              alt='brand asset'
             />
             <span className='flex text-center w-full  lg:w-96 text-3xl text-primaryText p-8 bg-white border-xl shadow-sm'>
               Within seconds, CardCheckr will generate a clear and concise result indicating
@@ -166,17 +177,22 @@ export default function Home() {
       </section>
       {/* privacy protection section */}
       <section className='m-20 sm:m-32 flex flex-col items-center justify-center sm:flex-row gap-20'>
-        <div className='lg:flex lg:flex-col lg:items-center lg:justify-center'>
+        <div className='flex flex-col items-center justify-center'>
           <h1 className='text-primaryText text-6xl sm:font-extrabold capitalize text-center max-w-max filter drop-shadow-lg'>Your Privacy Is Our Priority</h1>
           <p className='flex text-center w-full text-primaryText text-3xl mt-8'>We ensure that your data is well protected against malicious attacks. Our comprehensive security ensures that
             our systems are always up-to date and 100% secured.
           </p>
+          <button className="btn w-24 h-12 rounded-lg  font-bold flex items-center justify-center mt-8"
+              >
+                Verify Now <HiArrowRight className='relative left-4 btn__arrow'/>
+          </button>
         </div>
         <div>
           <Image 
             src='/assets/padlock.png'
             width={700}
             height={700}
+            alt='brand asset'
           />
         </div>
       </section>
@@ -187,6 +203,7 @@ export default function Home() {
           src='/assets/logo.png'
           width={200}
           height={200}
+          alt='logo'
         />
       </div>
       <h3 className='paragraph px-4 sm:px-52'>

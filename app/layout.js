@@ -2,7 +2,7 @@ import './globals.css'
 
 
 export const metadata = {
-  title: 'Credit Card Verification',
+  title: 'Cardbalances',
   description: 'Verify any Card with confidence ',
 }
 

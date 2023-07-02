@@ -16,11 +16,12 @@ const Nav = () => {
             src='/assets/logo.png'
             width={200}
             height={200}
+            alt='logo'
           />
         </div>
         {/* Laptop nav */}
         <ul className="hidden lg:flex gap-8 uppercase font-bold relative left-1/4">
-          {['home', 'Testimonials', 'contact'].map((item) => (
+          {['home', 'testimonials', 'contact'].map((item) => (
             <li key={`link-${item}`}>
               <div />
               <a href={`#${item}`} className='text-primaryText'>{item}</a>
@@ -38,7 +39,7 @@ const Nav = () => {
             >
             <HiX onClick={() => setToggle(false)} className="nav-close"/>
             <ul className='flex flex-col gap-y-7 -ml-1'>
-              {['home', 'Testimonials', 'contact'].map((item) => (
+              {['home', 'testimonials', 'contact'].map((item) => (
                 <li key={item} className='uppercase'>
                   <a className='text-primaryText' href={`#${item}`} onClick={() => setToggle(false)}>
                     {item}
