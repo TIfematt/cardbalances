@@ -3,7 +3,7 @@ import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from 'react-icons/bi';
 
 const Testimonials = () => {
   return (
-    <section className='bg-primary w-screen' id='testimonials'>
+    <section className='bg-primary w-screen'>
       <div className='mx-4 sm:m-32 pt-20 md:pt-20 lg:pt-32 pb-20'> 
         <div className='flex flex-col items-center justify-center'>
           <h1 className='heading'>Testimonials</h1>

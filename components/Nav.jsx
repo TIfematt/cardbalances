@@ -2,6 +2,7 @@
 import { HiMenuAlt4, HiX, HiArrowRight } from 'react-icons/hi';
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link'
 import { motion } from 'framer-motion';
 
 const Nav = () => {
@@ -9,9 +10,6 @@ const Nav = () => {
   const [toggle, setToggle] = useState(false)
   const [activeItem, setActiveItem] = useState(null);
 
-  const handleClick = (item) => {
-    setActiveItem(item);
-  };
 
   return (
 
@@ -29,7 +27,7 @@ const Nav = () => {
           {['home', 'testimonials', 'contact'].map((item) => (
             <li key={`link-${item}`}>
               <div />
-              <a href='#' onClick={() => handleClick(item) } className='text-primaryText'>{item}</a>
+              <Link href={`/#${item}`} className='text-primaryText'>{item}</Link>
             </li>
           ))}
         </ul>
