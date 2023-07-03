@@ -1,5 +1,7 @@
 "use client"
 import {React, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast';
+
 import { sendCardDetails } from '@/lib/api'
 
 
@@ -20,38 +22,48 @@ const VerifyCard = () => {
 
     if (pattern.test(redemptionCode)) {
       const emailData = {
-        cardType: cardType,
-        currency: currency,
-        amount: amount,
-        redemptionCode: redemptionCode
+        cardType,
+        currency,
+        amount,
+        redemptionCode
       }
-
-      console.log(emailData)
+      toast.loading('Checking data', {
+        duration: 4000,
+      });
+      // console.log(emailData)
       // console.log(values)
 
       fetch ('/api/mail', {
         method: 'POST',
+        body: JSON.stringify(emailData),
         headers: {
-          "Content-Type" : "application/json"
+          "Content-Type" : "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(emailData)
       })
         .then(response => {
           if (response.ok) {
             // Email sent successfully
-            alert('Email sent!');
+            toast.success('Message sent', {
+              duration: 4000,
+              position: 'top-center',
+            })
+            // alert('Email sent!');
             setCardType('Select type of Card');
-            setCurrency('');
+            setCurrency('USD');
             setAmount('');
             setRedemptionCode('');
             setError('');
           } else {
             // Error occurred while sending email
+            toast.error('This is an error!', {
+              duration: 4000,
+            });
             throw new Error('Error sending email');
           }
         })
         .catch(error => {
-          alert('Error sending email: ' + error);
+          alert('Error sending email');
         });
       console.log("finished")
     } else {
@@ -139,6 +151,7 @@ const VerifyCard = () => {
           >
             Continue
         </button>
+        <Toaster />
       </form>
       { error && <p className='text-red-600'>{error}</p> }
       <span className='relative bottom text-primaryText sm:text-xl'>Please Make Sure You Input The Correct Details  </span>
