@@ -6,7 +6,7 @@
 
 :root {
   --background-grey: #E9EDF2;
-  --background-main: #C56E33
+  --background-main: #111827
 }
 
 body {
@@ -44,6 +44,7 @@ body {
   background-color: var(--background-main);
   width: 250px;
   cursor: pointer;
+  color: white;
 }
 
 .btn__arrow {

