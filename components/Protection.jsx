@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import {HiArrowRight} from 'react-icons/hi'
+import Link from 'next/link'
 
 const Protection = () => {
   return (
@@ -11,7 +12,7 @@ const Protection = () => {
             our systems are always up-to date and 100% secured.
           </p>
           <a className="btn w-24 h-12 rounded-lg  font-bold flex items-center justify-center mt-8"
-            href={`#testimonial`}
+            href='#verify'
               >
                 Verify Now <HiArrowRight className='relative left-4 btn__arrow'/>
           </a>

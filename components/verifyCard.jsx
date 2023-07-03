@@ -72,7 +72,7 @@ const VerifyCard = () => {
 
 
   return (
-    <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center'>
+    <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center' id='verify'>
       <div className='flex flex-col items-center justify-center sm:w-1/2 h-max py-12 sm:bg-secondary sm:rounded-xl sm:bg-opacity-50'>
         <form method='post' className='flex flex-col gap-8 w-full px-12'> 
           <span className='flex justify-center text-4xl sm:text-6xl text-primaryText font-bold'>Verify Card Information</span>
