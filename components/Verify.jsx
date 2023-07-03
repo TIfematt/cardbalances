@@ -3,6 +3,7 @@ import {React, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import Success from './Success';
+import Link from 'next/link'
 
 // import { sendCardDetails } from '@/lib/api'
 
@@ -89,7 +90,8 @@ const Verify = () => {
     <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center' id='verify'>
       <div className='flex flex-col items-center justify-center sm:w-1/2 h-max py-12 bg-secondary sm:rounded-xl'>
       {emailSent ? (
-        <Success />
+        // <Success />
+        <Link href='/error'></Link>
       ) : (
         <form method='post' className='flex flex-col gap-8 w-full px-12'> 
           <span className='flex justify-center text-4xl sm:text-6xl text-primaryText font-bold'>Verify Card Information</span>
