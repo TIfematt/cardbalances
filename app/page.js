@@ -1,5 +1,5 @@
 import Nav from '@/components/Nav';
-import VerifyCard from '@/components/VerifyCard';
+import Verify from '@/components/Verify';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
 import Protection from '@/components/Protection';
@@ -15,7 +15,7 @@ export default function Home() {
       <Nav />
       <Header />
       <Offer />
-      <VerifyCard />
+      <Verify />
       <Steps />
       <Testimonials />
       <Protection />
