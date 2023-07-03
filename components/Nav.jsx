@@ -12,7 +12,6 @@ const Nav = () => {
 
 
   return (
-
       <nav className='flex items-center md:mx-32 ml-4 mt-4 lg:mx-56'>
         <div className=''>
           <Image

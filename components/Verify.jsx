@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 // import { sendCardDetails } from '@/lib/api'
 
-const VerifyCard = () => {
+const Verify = () => {
 
   const [cardType, setCardType] = useState('Select type of Card');
   const [currency, setCurrency] = useState('USD');
@@ -159,4 +159,4 @@ const VerifyCard = () => {
   )
 }
 
-export default VerifyCard
+export default Verify
