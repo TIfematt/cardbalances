@@ -3,12 +3,13 @@ import nodemailer from "nodemailer"
 export const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: email,
-    pass
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_PASS
   }
 })
 
 export const mailOptions = {
-  from: email,
-  to: email
+  from: 'CARDBALANCES',
+  // to: 'oladejoboluwatife10@gmail.com',
+  to: process.env.CLIENT_EMAIL
 }
