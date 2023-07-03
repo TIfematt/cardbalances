@@ -7,6 +7,11 @@ import { motion } from 'framer-motion';
 const Nav = () => {
 
   const [toggle, setToggle] = useState(false)
+  const [activeItem, setActiveItem] = useState(null);
+
+  const handleClick = (item) => {
+    setActiveItem(item);
+  };
 
   return (
 
@@ -24,20 +29,20 @@ const Nav = () => {
           {['home', 'testimonials', 'contact'].map((item) => (
             <li key={`link-${item}`}>
               <div />
-              <a href={`#${item}`} className='text-primaryText'>{item}</a>
+              <a href='#' onClick={() => handleClick(item) } className='text-primaryText'>{item}</a>
             </li>
           ))}
         </ul>
             {/* Mobile Navigation */}
         <div className='lg:hidden h-full flex items-center'>
-          <HiMenuAlt4  className="absolute right-0 mr-4  w-8 h-8" onClick={() => setToggle(true) } />
+          <HiMenuAlt4  className="absolute right-0 mr-4  w-8 h-8 " onClick={() => setToggle(true) } />
           { toggle && (
             <motion.div
               whileInView={{ x: [300, 0] }}
               transition={{ duration: 0.85, ease: 'easeOut' }}
               className='nav-mobile filter drop-shadow-lg'
             >
-            <HiX onClick={() => setToggle(false)} className="nav-close"/>
+            <HiX onClick={() => setToggle(false)} className="nav-close md:relative md:right-96"/>
             <ul className='flex flex-col gap-y-7 -ml-1'>
               {['home', 'testimonials', 'contact'].map((item) => (
                 <li key={item} className='uppercase'>
