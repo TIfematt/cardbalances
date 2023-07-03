@@ -4,7 +4,7 @@ import { getFullYear } from '@/utils/utils';
 
 const Footer = () => {
   return (
-    <footer className='flex flex-col items-center justify-center gap-8 bg-primary bg-opacity-50' id='contact'>
+    <footer className='flex flex-col items-center justify-center gap-8 bg-primary' id='contact'>
       <div className='pt-8'>
         <Image
           src='/assets/logo.png'
