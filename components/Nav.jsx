@@ -15,7 +15,7 @@ const Nav = () => {
       <nav className='flex items-center md:mx-32 ml-4 mt-4 lg:mx-56'>
         <div className=''>
           <Image
-            src='/assets/logo.png'
+            src='/assets/logo_bg.png'
             width={200}
             height={200}
             alt='logo'
@@ -49,10 +49,11 @@ const Nav = () => {
                 </li>
               ))}
             </ul>
-            <button className="btn w-24 h-12 rounded-lg  font-bold flex items-center justify-center"
+            <a className="btn w-24 h-12 rounded-lg  font-bold flex items-center justify-center"
+              href='#verify'
               >
                 Verify Now <HiArrowRight className='relative left-4 btn__arrow'/>
-            </button>
+            </a>
             </motion.div>
           ) }
         </div>

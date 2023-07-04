@@ -41,7 +41,7 @@ body {
 }
 
 .btn {
-  background-color: var(--background-main);
+  background-color: blue;
   width: 250px;
   cursor: pointer;
   color: white;

@@ -11,10 +11,11 @@ import {HiArrowRight} from "react-icons/hi"
 const Header = () => {
   return (
     <header className='mt-8 mx-8 lg:mx-32'>
-      <div className='md:flex md:flex-col md:items-center md:justify-center lg:flex lg:flex-row lg:justify-center lg:gap-24'>
-        <div className='flex flex-col items-center justify-center'>
-          <h1 className='text-primaryText text-6xl sm:font-extrabold flex flex-col capitalize text-center sm:max-w-4xl lg:max-w-max lg:-mt-48 sm:ml-16 '>
-            Welcome to Cardbalances <span className='text-4xl pt-8 max-w-2xl  lg:max-w-max text-center'> Your Trusted Card Authenticity Verification Tool </span>
+      <div className='md:flex md:flex-col md:items-center md:justify-center lg:flex lg:flex-row lg:justify-center lg:gap-24 lg:mt-32'>
+        <div className='flex flex-col items-center justify-center lg:mt-16'>
+          <h1 className='text-4xl sm:text-6xl font-extrabold flex flex-col capitalize text-center sm:max-w-4xl lg:max-w-max lg:-mt-48 sm:ml-16 '>
+            Verify Any Card With Confidence <span className='text-2xl pt-8 max-w-2xl lg:text-3xl  lg:max-w-max text-center'> Cardbalances is a software that is used
+            to verify, track and test the integrity of gift card or credit card information </span>
           </h1>
           <a className="btn w-24 h-12 rounded-lg  font-bold flex items-center justify-center mt-8 lg:ml-8"
             href='#verify'
