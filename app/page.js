@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Nav />
       <Header />
-      <Offer />
+      {/* <Offer /> */}
       <Verify />
       <Steps />
       <Testimonials />
