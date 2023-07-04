@@ -54,12 +54,13 @@ const Steps = () => {
 
   <section className='flex flex-col sm:flex-row justify-center items-center'>
     <Image 
-      src='/assets/verification.png'
+      src='/assets/card_brands.png'
       width={340}
       height={240}
       alt='brand asset'
+      className='pt-8'
     />
-    <div className='flex flex-col gap-4 items-center justify-center lg:max-w-lg px-12 pb-12 sm:pb-0 '>
+    <div className='flex flex-col gap-4 items-center justify-center lg:max-w-lg px-12 pb-12 sm:pb-0 mt-4'>
       <h1 className='text-2xl font-bold max-w-40'>An efficient solution to verify all cards data.</h1>
       <p className='lg:max-w-sm'>
         Giftly is the most efficient framework to verify a card. 

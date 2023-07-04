@@ -10,14 +10,16 @@ import {HiArrowRight} from "react-icons/hi"
 
 const Header = () => {
   return (
-    <header className='mt-8 mx-8 lg:mx-32'>
-      <div className='md:flex md:flex-col md:items-center md:justify-center lg:flex lg:flex-row lg:justify-center lg:gap-24 lg:mt-32'>
-        <div className='flex flex-col items-center justify-center lg:mt-16'>
-          <h1 className='text-4xl sm:text-6xl font-extrabold flex flex-col capitalize text-center sm:max-w-4xl lg:max-w-max lg:-mt-48 sm:ml-16 '>
-            Verify Any Card With Confidence <span className='text-2xl pt-8 max-w-2xl lg:text-3xl  lg:max-w-max text-center'> Cardbalances is a software that is used
-            to verify, track and test the integrity of gift card or credit card information </span>
+    <header className='mt-8 mx-8 lg:mx-32 -pb-12'>
+      <div className='md:flex md:px-8 md:gap-8 md:items-center md:justify-center lg:flex lg:flex-row lg:justify-center lg:gap-24 lg:mt-32 lg:items-center'>
+        <div className='flex flex-col items-center justify-center md:flex lg:mt-16'>
+          <h1 className='text-3xl sm:text-6xl font-extrabold flex flex-col capitalize text-left sm:max-w-4xl lg:max-w-max  '>
+            Verify Any Card With Confidence 
           </h1>
-          <a className="btn w-24 h-12 rounded-lg  font-bold flex items-center justify-center mt-8 lg:ml-8"
+          <span className='text-xl pt-8 max-w-2xl lg:text-3xl  lg:max-w-max text-left'> 
+            Cardbalances is a software that is used to verify, track and test the integrity of gift card or credit card information 
+          </span>
+          <a className="btn w-24 h-12 rounded-lg  font-bold flex items-center justify-center mt-8 "
             href='#verify'
               >
                 Verify Now <HiArrowRight className='relative left-4 btn__arrow'/>
@@ -25,11 +27,11 @@ const Header = () => {
         </div>
 
         <Image 
-          src='/assets/card_brands.png'
+          src='/assets/header_img.png'
           width={450}
-          height={600}
+          height={800}
           alt='card brands'
-          className='mt-8 rounded-xl lg:w-1/2  md:w-full'
+          className='mt-8 rounded-xl lg:w-1/2  md:w-full w-auto h-auto'
         />
       </div>
 

@@ -11,6 +11,7 @@ const Footer = () => {
           width={200}
           height={200}
           alt='logo'
+          className='w-auto h-auto'
         />
       </div>
       <h3 className='text-center w-full text-white text-3xl px-4 sm:px-52'>
