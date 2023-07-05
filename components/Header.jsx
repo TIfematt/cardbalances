@@ -10,7 +10,7 @@ import {HiArrowRight} from "react-icons/hi"
 
 const Header = () => {
   return (
-    <header className='mt-8 mx-8 lg:mx-32 -pb-12'>
+    <header className='mt-8 mx-8 lg:mx-32 -'>
       <div className='md:flex md:px-8 md:gap-8 md:items-center md:justify-center lg:flex lg:flex-row lg:justify-center lg:gap-24 lg:mt-32 lg:items-center'>
         <div className='flex flex-col items-center justify-center md:flex lg:mt-16'>
           <h1 className='text-3xl sm:text-6xl font-extrabold flex flex-col capitalize text-left sm:max-w-4xl lg:max-w-max  '>
